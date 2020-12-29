@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './Person/Person';
+import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
   state = {
@@ -59,43 +60,23 @@ class App extends Component {
 
   render (){
 
-  // Inline css styling
-  const style = {
-    backgroundColor: 'white',
-    font: 'inherit',
-    border: '1px solid blue',
-    padding: '8px',
-    cursor: 'pointer'
-  }
-
   let persons = null;
   if(this.state.showPersons){
     persons = (
       <div>
         {/* a loop */}
-        { this.state.persons.map((person, index ) => {
-          return <Person 
-            click = {()=> this.deletePersonHandler(index)}
-            name={person.name}
-            age={person.age}
-            // the key property allows react to keep track of changes
-            key={person.id}
-            changed = { (event) => this.changeNameHandler (event, person.id) }
-          />
-        }) }
+        <Persons 
+          persons= {this.state.persons}
+          clicked = { this.deletePersonHandler }
+          changed = { this.changeNameHandler }
+        />
     </div>
     );
   }
   return (
     // adding external css style sheet
     <div className="App">
-      <h1>This is my react app</h1>
-      {/* using the arrow function to pass data to a function... Not recommended */}
-      <button 
-        style = {style}
-        onClick={this.togglePersonsHandler}>
-          Show Cards
-      </button>
+      <Cockpit clicked={ this.togglePersonsHandler } />
       { persons }
     </div>
   );
