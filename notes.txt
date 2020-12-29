@@ -1,0 +1,9 @@
+: <=> : To access props in a class based componet
+
+            pass it as you would pass a normal prop
+
+            ````<App titleApp='My Title' />````
+
+            then to access it in the class component unordered_list
+
+                <Cockpit title={ this.props.titleApp } />

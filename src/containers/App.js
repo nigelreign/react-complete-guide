@@ -4,6 +4,25 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
+
+// The constructor runs first before anything else
+// You can set our state in the constructor
+// eg 
+//    this.state = {
+  //   persons: [
+  //       { id: '1', name: "Nigel", age: 26},
+  //       { id: '2', name: "Natalie", age: 23},
+  //       { id: '3', name: "Daniel", age: 24}
+  //   ],
+  //   otherState: 'Some other state',
+  //   showPersons: false
+  // }
+
+  constructor(props){
+    super(props);
+    console.log("[App.js] constructor")
+  }
+
   state = {
     persons: [
         { id: '1', name: "Nigel", age: 26},
@@ -12,6 +31,18 @@ class App extends Component {
     ],
     otherState: 'Some other state',
     showPersons: false
+  }
+
+// this will run after the constructor
+  static getDerivedStateFromProps(props, state){
+    console.log("[App.js] getDerivedStateFromProps", props);
+    return state;
+  }
+
+  // componentDidMount will run after the render method
+
+  componentDidMount(){
+    console.log("[App.js] componentDidMount");
   }
 
   switchNameHandler = (newName) => {
@@ -58,8 +89,11 @@ class App extends Component {
     this.setState({ persons: persons })
   }
 
+// this method runs after the the getDerivedStateFromProps method
+
   render (){
 
+  console.log("[App.js] render");
   let persons = null;
   if(this.state.showPersons){
     persons = (
