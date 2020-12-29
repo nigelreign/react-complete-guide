@@ -110,7 +110,10 @@ class App extends Component {
   return (
     // adding external css style sheet
     <div className="App">
-      <Cockpit clicked={ this.togglePersonsHandler } />
+      <Cockpit 
+       clicked={ this.togglePersonsHandler } 
+       persons={ this.state.persons }
+      />
       { persons }
     </div>
   );
