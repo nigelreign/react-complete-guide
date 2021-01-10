@@ -16,7 +16,13 @@ class Persons extends Component {
 // These will run as soon as there is a state change
   shouldComponentUpdate(nextProps, nextState){
     console.log("[Persons.js] shouldComponetUpdate");
-    return true;
+
+    if(nextProps.persons !== this.props.persons){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState){
@@ -27,6 +33,11 @@ class Persons extends Component {
   componentDidUpdate(prevProps, prevState, snapShot){
     console.log("[Persons.js] componentDidUpdate");
     console.log(snapShot);
+  }
+
+  componentWillUnmount(){
+    // this will run before a compnent is removed
+    console.log("[Persons.js] componentWillUnmont");
   }
 
   render() {
