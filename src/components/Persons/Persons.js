@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import Person from './Person/Person';
 
 // Imported from app js 
 // Contains our loop
-class Persons extends Component {
+class Persons extends PureComponent {
   // This will run first
   // Its part of the creation life cylce
 
@@ -14,16 +14,19 @@ class Persons extends Component {
   // }
 
 // These will run as soon as there is a state change
-  shouldComponentUpdate(nextProps, nextState){
-    console.log("[Persons.js] shouldComponetUpdate");
+// This can be used to stop other functions from running if their states didnt change
+//   shouldComponentUpdate(nextProps, nextState){
+//     console.log("[Persons.js] shouldComponetUpdate");
 
-    if(nextProps.persons !== this.props.persons){
-      return true;
-    }
-    else{
-      return false;
-    }
-  }
+// // This if statement will block the render function if person didnt change
+// // If you wish to check multiple props component you should consider extending PureComponent instead of using shouldComponentUpdate
+//     if(nextProps.persons !== this.props.persons){
+//       return true;
+//     }
+//     else{
+//       return false;
+//     }
+  // }
 
   getSnapshotBeforeUpdate(prevProps, prevState){
     console.log("[Persons.js] getSnapshotBeforeUpdate");
@@ -52,7 +55,6 @@ class Persons extends Component {
             changed = { (event) => this.props.changed (event, person.id) }
           />
         });
-
   }
 }
 

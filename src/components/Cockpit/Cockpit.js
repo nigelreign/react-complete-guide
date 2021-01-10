@@ -20,7 +20,7 @@ const Cockpit = (props) => {
 
     // this code runs when the component is mounted
     setTimeout(() => {
-      alert('Saved data to cloud!');
+      alert('Welcome back');
     }, 1000);
 
     // this code runs when the code is unmounted
@@ -68,15 +68,24 @@ const style = {
   }
     return (
         <div>
-            <h1>This is my react app</h1>
+            <h1>ROAD TO BECOMING A REACT DEVELOPER</h1>
             {/* using the arrow function to pass data to a function... Not recommended */}
             <button 
                 style = {style}
                 onClick={props.clicked}>
-                Show Cards
+                Show My Card
             </button>
         </div>
     );
 }
 
-export default Cockpit;
+// To stop react from rendering this function everytime there is a change in other states
+/* React.memo uses a technique of memorizing or storing a snapshot of this component and if any state changes
+ in this snapshot react will execute this function */
+/* Passing values individually will help react memorize the props being passed
+    eg
+        persons = {  this.state.persons }
+        personsLength = {  this.state.persons.lenght }
+    the memorization will trigger change if any of these props is changed in function
+*/
+export default React.memo(Cockpit);
