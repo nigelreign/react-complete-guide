@@ -7,6 +7,18 @@ class Person extends Component{
     render (){
         console.log("[Person.js] renderrinnggg....");
     return (
+        // React also has a built in Aux component called React.Fragment you can use it using any method below
+        /* import React, { Fragment } from 'react'
+
+            <Fragment>
+                some JSX code
+            </Fragment>
+
+            OR
+            <React.Fragment>
+                some JSX code
+            </React.Fragment>
+         */
         <Aux>
             {/* // calling a css class name */}
             <div className='Person'>
