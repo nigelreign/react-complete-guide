@@ -15,6 +15,8 @@
         ```` npm install --save prop-types ````
     
     then import it
-    
+
     import PropTypes from 'prop-types';
+
+: <=> : Refs are used to reference to a particular JSX element
 
