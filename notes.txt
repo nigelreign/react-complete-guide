@@ -1,9 +1,20 @@
 : <=> : To access props in a class based componet
 
-            pass it as you would pass a normal prop
+    pass it as you would pass a normal prop
 
-            ````<App titleApp='My Title' />````
+    ````<App titleApp='My Title' />````
 
-            then to access it in the class component unordered_list
+    then to access it in the class component unordered_list
 
-                <Cockpit title={ this.props.titleApp } />
+        <Cockpit title={ this.props.titleApp } />
+
+: <=> : Using PropTypes
+    Defines which instructions on which type each prop accepts
+
+    Install 
+        ```` npm install --save prop-types ````
+    
+    then import it
+    
+    import PropTypes from 'prop-types';
+
