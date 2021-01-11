@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
-
-
+import React, { useEffect, useRef } from 'react';
 
 const Cockpit = (props) => {
+
+    // using useRef
+    const toggleBtnRef = useRef(null);
+
     // using useEffects 
 
     // Possible error
@@ -15,6 +17,8 @@ const Cockpit = (props) => {
     // Make sure the name componet name starts with an uppercase and make sure to export the changed name
 
   useEffect(() => {
+    toggleBtnRef.current.click();
+
     console.log('[Cockpit.js] useEffect');
     // Http request...
 
@@ -70,7 +74,8 @@ const style = {
         <div>
             <h1>ROAD TO BECOMING A REACT DEVELOPER</h1>
             {/* using the arrow function to pass data to a function... Not recommended */}
-            <button 
+            <button
+                ref = {toggleBtnRef}
                 style = {style}
                 onClick={props.clicked}>
                 Show My Card
