@@ -20,3 +20,5 @@
 
 : <=> : Refs are used to reference to a particular JSX element
 
+: <=> : To manage passing down props through many tree levels use the context API
+
